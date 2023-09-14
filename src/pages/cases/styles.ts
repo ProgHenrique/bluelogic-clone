@@ -122,6 +122,9 @@ export const ReachCustomer = styled('div', {
     p: {
       color: 'rgba(2, 52, 54, 1)',
       lineHeight: '1.5rem',
+      '@desktop': {
+        fontSize: '$lg',
+      },
     },
   },
 
