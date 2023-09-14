@@ -29,7 +29,7 @@ import amparo from '../../assets/amparo.png'
 import doctor from '../../assets/doctor.png'
 import ht from '../../assets/ht.png'
 import ricker from '../../assets/ricker.png'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { shadowOnHeader } from '../../utils/when-scroll'
 
 const animation = { duration: 8000, easing: (t: number) => t }
@@ -38,10 +38,17 @@ export default function Home() {
   // menu item, hides the menu
   const [scroll, setScroll] = useState<boolean>(false)
 
+  // call scroll function
   window.addEventListener('scroll', () => {
     const isScroll = shadowOnHeader()
     setScroll(isScroll)
   })
+
+  useEffect(() => {
+    document.title = 'Início | Bluelogic'
+  }, [])
+
+  // slider settings
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
     slides: {
       perView: 'auto',
@@ -170,7 +177,7 @@ export default function Home() {
             className="keen-slider"
             style={{
               marginTop: '1rem',
-              width: 1100,
+              width: 1152,
             }}
           >
             <KeenSLider className="keen-slider__slide">

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { shadowOnHeader } from '../../utils/when-scroll'
 import {
   Main,
@@ -23,6 +23,10 @@ export default function Cases() {
     const isScroll = shadowOnHeader()
     setScroll(isScroll)
   })
+
+  useEffect(() => {
+    document.title = 'Cases | Bluelogic'
+  }, [])
 
   return (
     <Main isScrolled={scroll}>

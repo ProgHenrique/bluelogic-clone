@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { shadowOnHeader } from '../../utils/when-scroll'
 import { AboutInfos, HeroSection, Main, Section } from './styles'
 
@@ -10,6 +10,11 @@ export default function AboutUs() {
     const isScroll = shadowOnHeader()
     setScroll(isScroll)
   })
+
+  useEffect(() => {
+    document.title = 'Sobre-nós | Bluelogic'
+  }, [])
+
   return (
     <Main isScrolled={scroll}>
       <HeroSection>

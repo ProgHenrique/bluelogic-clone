@@ -16,7 +16,7 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { firstLetterUppercase } from '../../utils/first-letter-uppercase'
-import { ChangeEvent } from 'react'
+import { ChangeEvent, useEffect } from 'react'
 
 const contactFormSchema = z.object({
   name: z
@@ -46,6 +46,11 @@ const contactFormSchema = z.object({
 type ContactFormData = z.infer<typeof contactFormSchema>
 
 export default function Contact() {
+  useEffect(() => {
+    document.title = 'Contato | Bluelogic'
+  }, [])
+
+  // react hook form setup
   const {
     register,
     handleSubmit,
@@ -71,7 +76,7 @@ export default function Contact() {
     reset()
   }
 
-  function handlePriceChange(event: ChangeEvent<HTMLInputElement>) {
+  function handleFormatNumberPhone(event: ChangeEvent<HTMLInputElement>) {
     let inputValue: string = event.target.value.replace(/\D/g, '')
 
     if (inputValue.length > 11) {
@@ -126,7 +131,7 @@ export default function Contact() {
                 <Input
                   type="tel"
                   {...register('phone')}
-                  onChange={handlePriceChange}
+                  onChange={handleFormatNumberPhone}
                 />
                 <p>{errors.phone ? `* ${errors.phone.message}` : ''}</p>
               </Label>
