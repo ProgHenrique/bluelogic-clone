@@ -105,6 +105,7 @@ export const Form = styled('form', {
   flexDirection: 'column',
   gap: '2.25rem',
   width: '100%',
+  marginBottom: '3.5rem',
 
   div: {
     display: 'flex',

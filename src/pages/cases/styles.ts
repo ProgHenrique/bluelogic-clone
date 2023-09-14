@@ -31,6 +31,7 @@ export const Section = styled('section', {
   width: '100%',
   gap: '2.5rem',
   padding: '0 1.5rem',
+  marginTop: '1.5rem',
   zIndex: 2,
   h2: {
     letterSpacing: '0.05rem',
